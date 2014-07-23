@@ -1,4 +1,6 @@
-require "nexmo/voice/version"
+require 'rest_client'
+
+require 'nexmo/voice/version'
 
 module Nexmo
   module Voice
