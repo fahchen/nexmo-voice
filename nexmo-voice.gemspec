@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['dev.fah@gmail.com']
   spec.summary       = %q{A Ruby wrapper for the Nexmo Voice API.}
   spec.description   = %q{A Ruby wrapper for the Nexmo Voice(only) API.}
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/fahchen/nexmo-voice'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
