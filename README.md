@@ -18,7 +18,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+  # Initialize your client
+  client = Nexmo::Voice::Client.new 'your_key', 'your_secret'
+  
+  # Make a tts call with minimum options
+  options = {
+    to: 'recipient_number',
+    text: 'Hello from gem.'
+  }
+  client.ttses.create options
+```
 
 ## Contributing
 
