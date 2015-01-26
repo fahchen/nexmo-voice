@@ -11,7 +11,7 @@ describe Nexmo::Voice::Calls do
       'status' => '0',
       'error-text' => 'Success'
     }
-    stub_request(:get, %r(https://rest.nexmo.com/call/json.*)).to_return(body: response_json)
+    stub_request(:get, %r(https://api.nexmo.com/call/json.*)).to_return(body: response_json)
   end
 
   it 'not raises errors' do

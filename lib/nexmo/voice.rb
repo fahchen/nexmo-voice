@@ -6,7 +6,7 @@ require 'nexmo/voice/ttses'
 
 module Nexmo
   module Voice
-    BASE_URL = 'https://rest.nexmo.com'
+    BASE_URL = 'https://api.nexmo.com'
 
     class Client
       attr_accessor :api_key, :api_secret,
