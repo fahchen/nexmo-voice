@@ -21,7 +21,9 @@ Or install it yourself as:
 ```ruby
   # Initialize your client
   client = Nexmo::Voice::Client.new 'your_key', 'your_secret'
-  
+  # or initialize with timeout(default: 10 seconds)
+  client = Nexmo::Voice::Client.new 'your_key', 'your_secret', timeout: 2
+
   # Make a tts call with minimum options
   options = {
     to: 'recipient_number',
