@@ -11,11 +11,16 @@ RSpec.describe Nexmo::Voice::Client do
   let(:api_secret) { 'test_api_secret' }
   let(:client) { Nexmo::Voice::Client.new api_key, api_secret }
 
-  it 'sets the api_key' do
-    expect(client.api_key).to eq api_key
+  it 'sets the api_config' do
+    expect(client.api_config).to match({ api_key: api_key, api_secret: api_secret })
   end
 
-  it 'sets the api_secret' do
-    expect(client.api_secret).to eq api_secret
+  it 'sets the default timeout' do
+    expect(client.nexmo_adaptor.timeout).to eq 10
+  end
+
+  it 'sets the timeout' do
+    another_client = Nexmo::Voice::Client.new api_key, api_secret, timeout: 2
+    expect(another_client.nexmo_adaptor.timeout).to eq 2
   end
 end
