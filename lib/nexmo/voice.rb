@@ -9,11 +9,15 @@ module Nexmo
     BASE_URL = 'https://api.nexmo.com'
 
     class Client
+      DEFAULT_TIMEOUT = 10
+
       attr_accessor :nexmo_adaptor, :api_config,
         :calls, :ttses
 
       def initialize(api_key, api_secret, options = {})
-        @nexmo_adaptor = RestClient::Resource.new(BASE_URL, timeout: options.fetch(:timeout, 10))
+        @nexmo_adaptor = RestClient::Resource.new(BASE_URL,
+                                                  timeout: options.fetch(:timeout) { DEFAULT_TIMEOUT },
+                                                  open_timeout: options.fetch(:open_timeout) { DEFAULT_TIMEOUT })
 
         @api_config = {
           api_key: api_key,

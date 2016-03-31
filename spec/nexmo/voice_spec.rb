@@ -17,10 +17,12 @@ RSpec.describe Nexmo::Voice::Client do
 
   it 'sets the default timeout' do
     expect(client.nexmo_adaptor.timeout).to eq 10
+    expect(client.nexmo_adaptor.open_timeout).to eq 10
   end
 
   it 'sets the timeout' do
-    another_client = Nexmo::Voice::Client.new api_key, api_secret, timeout: 2
+    another_client = Nexmo::Voice::Client.new api_key, api_secret, timeout: 2, open_timeout: 1
     expect(another_client.nexmo_adaptor.timeout).to eq 2
+    expect(another_client.nexmo_adaptor.open_timeout).to eq 1
   end
 end
