@@ -1,6 +1,6 @@
 module Nexmo::Voice
   class Calls
-    RELATIVE_URL = '/call/json'
+    RELATIVE_URL = '/call/json'.freeze
 
     attr_accessor :client
 
@@ -12,6 +12,5 @@ module Nexmo::Voice
     def create(entity = {})
       @client.get(self, entity)
     end
-
   end
 end

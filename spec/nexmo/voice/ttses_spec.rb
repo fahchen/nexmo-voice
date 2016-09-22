@@ -13,7 +13,8 @@ describe Nexmo::Voice::Ttses do
   }
 
   it 'not raises errors' do
-    stub_request(:get, %r(https://api.nexmo.com/tts/json.*)).to_return(body: response_json)
+    stub_request(:get, %r{https://api.nexmo.com/tts/json.*})
+      .to_return(body: response_json.to_json)
 
     expect {
       client.ttses.create(entity)
@@ -21,11 +22,11 @@ describe Nexmo::Voice::Ttses do
   end
 
   it 'timeouts' do
-    stub_request(:get, %r(https://api.nexmo.com/tts/json.*)).to_timeout
+    stub_request(:get, %r{https://api.nexmo.com/tts/json.*})
+      .to_timeout
 
     expect {
-      client.calls.create(entity)
-    }.to raise_error
+      client.ttses.create(entity)
+    }.to raise_error(RestClient::Exceptions::ReadTimeout)
   end
 end
-

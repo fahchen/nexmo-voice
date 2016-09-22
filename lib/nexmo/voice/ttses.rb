@@ -1,6 +1,6 @@
 module Nexmo::Voice
   class Ttses
-    RELATIVE_URL = '/tts/json'
+    RELATIVE_URL = '/tts/json'.freeze
 
     attr_accessor :client
 
@@ -12,7 +12,5 @@ module Nexmo::Voice
     def create(entity = {})
       @client.get(self, entity)
     end
-
   end
 end
-
